@@ -28,4 +28,11 @@ public abstract class Achievement {
 
         return Objects.hash(id);
     }
+
+    @Override
+    public String toString() {
+        return "Achievement{" +
+                "id='" + id + '\'' +
+                '}';
+    }
 }

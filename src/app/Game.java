@@ -2,16 +2,30 @@ package app;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
 
     private String gameId;
     private List<Team> teams;
     private Team winnerTeam;
+    private IGameLogic gameLogic;
 
     public void execute(){
 
         //game execution logic
+
+        System.out.println("Game executing......");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        gameLogic.execute(this);
+
+
+        System.out.println("################ GAME FINISHED ####################");
     }
 
     public String getGameId() {
@@ -36,6 +50,14 @@ public class Game {
 
     public void setWinnerTeam(Team winnerTeam) {
         this.winnerTeam = winnerTeam;
+    }
+
+    public IGameLogic getGameLogic() {
+        return gameLogic;
+    }
+
+    public void setGameLogic(IGameLogic gameLogic) {
+        this.gameLogic = gameLogic;
     }
 
     @Override

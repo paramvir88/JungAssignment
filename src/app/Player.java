@@ -2,6 +2,8 @@ package app;
 
 import Achievements.Achievement;
 
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -9,7 +11,7 @@ public class Player {
 
     private String playerId;
     private Map<String, GameStats> gameStats;
-    private Map<Achievement, Integer> achievements;
+    private LinkedHashSet<Achievement> achievements;
     private PlayerStats playerStats;
 
     public String getPlayerId() {
@@ -28,14 +30,21 @@ public class Player {
         this.gameStats = gameStats;
     }
 
-    public Map<Achievement, Integer> getAchievements() {
+    public LinkedHashSet<Achievement> getAchievements() {
         return achievements;
     }
 
-    public void setAchievements(Map<Achievement, Integer> achievements) {
+    public void setAchievements(LinkedHashSet<Achievement> achievements) {
         this.achievements = achievements;
     }
 
+    public PlayerStats getPlayerStats() {
+        return playerStats;
+    }
+
+    public void setPlayerStats(PlayerStats playerStats) {
+        this.playerStats = playerStats;
+    }
 
     @Override
     public boolean equals(Object o) {
