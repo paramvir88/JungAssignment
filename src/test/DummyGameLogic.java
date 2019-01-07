@@ -8,6 +8,9 @@ public class DummyGameLogic implements IGameLogic {
 
     @Override
     public void execute(Game game) {
+
+        System.out.println("Game logic executing for Game = " + game.getGameId());
+
         for (Team team : game.getTeams()) {
             for (Player player : team.getPlayers()) {
                 PlayerStats playerStats = new PlayerStats();

@@ -14,16 +14,18 @@ public class Driver {
 
     public static void main(String[] args) {
         DummyDataProvider provider = new DummyDataProvider();
+        System.out.println("DRIVER initiating...");
         Game game = provider.generateGame();
+        System.out.println("Game starting = " + game);
         game.execute();
-        ExtendableAchievmentCalculator achievmentCalculator = new ExtendableAchievmentCalculator();
-        calculateAchievements(game.getGameId(), achievmentCalculator, game.getTeams().get(0));
-        calculateAchievements(game.getGameId(), achievmentCalculator, game.getTeams().get(1));
+        AchievementSystem system = new AchievementSystem();
+        calculateAchievements(game.getGameId(), system, game.getTeams().get(0));
+        calculateAchievements(game.getGameId(), system, game.getTeams().get(1));
     }
 
-    private static void calculateAchievements(String gameId, ExtendableAchievmentCalculator achievmentCalculator, Team team) {
+    private static void calculateAchievements(String gameId, AchievementSystem system, Team team) {
         for (Player player : team.getPlayers()) {
-            player.getAchievements().addAll(achievmentCalculator.calculateAchievemntsForPlayer(player.getGameStats().get(gameId), player.getPlayerStats()));
+            player.getAchievements().addAll(system.calculateAchievemntsForPlayer(player.getPlayerId(), player.getGameStats().get(gameId), player.getPlayerStats()));
             System.out.println(player.getPlayerId() + " now has these achievements: " + player.getAchievements());
         }
     }

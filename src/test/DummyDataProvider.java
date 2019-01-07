@@ -12,6 +12,7 @@ public class DummyDataProvider {
 
     private List<Achievement> achievements = new ArrayList<>();
     private List<String> gameIds = new ArrayList<>();
+    private List<String> newGameIds = new ArrayList<>();
 
     public DummyDataProvider() {
         achievements.add(new BigWinner());
@@ -27,29 +28,37 @@ public class DummyDataProvider {
         gameIds.add("Game 4");
         gameIds.add("Game 5");
 
+        newGameIds.add("Bandersnatch Hard");
+        newGameIds.add("Bandersnatch Fire");
+        newGameIds.add("Bandersnatch Blood");
+        newGameIds.add("Bandersnatch Doom");
+        newGameIds.add("Bandersnatch Ice");
+
+
 
     }
 
 
     public Game generateGame() {
         Game game = new Game();
-        game.setGameId(getRandomString(6));
+        game.setGameId(newGameIds.get(getRandomNumber(0,5)));
         List<Team> teams = new ArrayList<>();
-        teams.add(generateTeam());
-        teams.add(generateTeam());
+        teams.add(generateTeam("Rockers"));
+        teams.add(generateTeam("Igniters"));
         game.setTeams(teams);
         game.setGameLogic(new DummyGameLogic());
         return game;
     }
 
-    public Team generateTeam() {
+    public Team generateTeam(String name) {
         Team team = new Team();
-        team.setTeamId(getRandomString(8));
+        team.setTeamId(name);
         List<Player> players = new ArrayList<>();
-        players.add(getPlayer());
-        players.add(getPlayer());
-        players.add(getPlayer());
-        players.add(getPlayer());
+        String namePref = name.substring(0, 4) + "_";
+        players.add(getPlayerWithName(namePref + "player_1"));
+        players.add(getPlayerWithName(namePref + "player_2"));
+        players.add(getPlayerWithName(namePref + "player_3"));
+        players.add(getPlayerWithName(namePref + "player_4"));
         team.setPlayers(players);
         return team;
 
@@ -76,11 +85,32 @@ public class DummyDataProvider {
 
     }
 
+    Player getPlayerWithName(String name) {
+
+        Player player = new Player();
+        player.setPlayerId(name);
+        LinkedHashSet<Achievement> achievements = new LinkedHashSet<>();
+        player.setAchievements(achievements);
+        for (int i = 0; i < getRandomNumber(0, 6); i++) {
+            achievements.add(getRandomAchievement(i));
+        }
+
+        Map<String, GameStats> gameStats = new HashMap<>();
+
+        for (String gameId : gameIds) {
+            gameStats.put(gameId, getRandomGameStats());
+        }
+        player.setGameStats(gameStats);
+        player.setPlayerStats(generateInitialPlayerStats());
+        return player;
+
+    }
+
 
     public String getRandomString(int length) {
         byte[] array = new byte[length];
         new Random().nextBytes(array);
-        String generatedString = new String(array, Charset.forName("UTF-8"));
+        String generatedString = new String(array);
         return generatedString;
     }
 

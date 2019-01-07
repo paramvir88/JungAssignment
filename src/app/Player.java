@@ -64,10 +64,9 @@ public class Player {
     public String toString() {
         return "Player{" +
                 "playerId='" + playerId + '\'' +
-                ", gameStats=" + gameStats +
+               // ", gameStats=" + gameStats +
                 ", achievements=" + achievements +
                 ", playerStats=" + playerStats +
                 '}';
     }
-
 }

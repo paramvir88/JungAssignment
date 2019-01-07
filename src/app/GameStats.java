@@ -103,4 +103,20 @@ public class GameStats {
     public void setNewStatistic(int newStatistic) {
         this.newStatistic = newStatistic;
     }
+
+    @Override
+    public String toString() {
+        return "GameStats{" +
+                "\nnoOfAttacks=" + noOfAttacks +
+                ",\n noOfHits=" + noOfHits +
+                ",\n damageDone=" + damageDone +
+                ",\n noOfKills=" + noOfKills +
+                ",\n noOfFirstHitKills=" + noOfFirstHitKills +
+                ",\n noOfAssists=" + noOfAssists +
+                ",\n noOfSpellsCast=" + noOfSpellsCast +
+                ",\n spellDamageDone=" + spellDamageDone +
+                ",\n timePlayed=" + timePlayed +
+                ",\n newStatistic=" + newStatistic +
+                '}';
+    }
 }

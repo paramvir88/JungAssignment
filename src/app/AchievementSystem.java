@@ -5,11 +5,11 @@ import Achievements.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExtendableAchievmentCalculator {
+public class AchievementSystem {
 
     public List<Achievement> achievements;
 
-    public ExtendableAchievmentCalculator() {
+    public AchievementSystem() {
         init();
     }
 
@@ -24,11 +24,12 @@ public class ExtendableAchievmentCalculator {
 
     }
 
-    public List<Achievement> calculateAchievemntsForPlayer(GameStats gameStats, PlayerStats playerStats) {
+    public List<Achievement> calculateAchievemntsForPlayer(String playerId, GameStats gameStats, PlayerStats playerStats) {
         List<Achievement> awardedAchievements = new ArrayList<>();
         for (Achievement achievement : achievements) {
             if (achievement.isAwarded(gameStats, playerStats)) {
                 awardedAchievements.add(achievement);
+                System.out.println("Achievement = " + achievement.getId() + " is being awarded to " + playerId);
             }
         }
         return awardedAchievements;

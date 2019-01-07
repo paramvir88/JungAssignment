@@ -13,8 +13,6 @@ public class Game {
 
     public void execute(){
 
-        //game execution logic
-
         System.out.println("Game executing......");
         try {
             Thread.sleep(2000);
@@ -79,6 +77,7 @@ public class Game {
                 "gameId='" + gameId + '\'' +
                 ", teams=" + teams +
                 ", winnerTeam=" + winnerTeam +
+                ", gameLogic=" + gameLogic +
                 '}';
     }
 }

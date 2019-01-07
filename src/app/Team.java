@@ -8,7 +8,6 @@ public class Team {
     private String teamId;
     private List<Player> players;
 
-
     public String getTeamId() {
         return teamId;
     }
@@ -37,5 +36,13 @@ public class Team {
     public int hashCode() {
 
         return Objects.hash(teamId);
+    }
+
+    @Override
+    public String toString() {
+        return "Team{" +
+                "teamId='" + teamId + '\'' +
+                ", players=" + players +
+                '}';
     }
 }
