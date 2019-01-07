@@ -20,6 +20,7 @@ public class ExtendableAchievmentCalculator {
         achievements.add(new BigWinner());
         achievements.add(new SharpShooter());
         achievements.add(new Veteran());
+        achievements.add(new NewAchievement());
 
     }
 

@@ -22,6 +22,7 @@ public class GameStats {
     private int noOfSpellsCast;
     private int spellDamageDone;
     private int timePlayed;
+    private int newStatistic;//added statistic
 
     public int getNoOfAttacks() {
         return noOfAttacks;
@@ -93,5 +94,13 @@ public class GameStats {
 
     public void setTimePlayed(int timePlayed) {
         this.timePlayed = timePlayed;
+    }
+
+    public int getNewStatistic() {
+        return newStatistic;
+    }
+
+    public void setNewStatistic(int newStatistic) {
+        this.newStatistic = newStatistic;
     }
 }
