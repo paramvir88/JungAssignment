@@ -16,11 +16,15 @@ public class Driver {
         DummyDataProvider provider = new DummyDataProvider();
         System.out.println("DRIVER initiating...");
         Game game = provider.generateGame();
-        System.out.println("Game starting = " + game);
+        System.out.println("\n-------- Game = " + game.getGameId() + " ---------");
+        System.out.println("\n###Game details: \n" + game);
+        System.out.println("\n\n\n###############################################\n");
         game.execute();
+        System.out.println("############### Achievement System ########################\n\n\n");
         AchievementSystem system = new AchievementSystem();
         calculateAchievements(game.getGameId(), system, game.getTeams().get(0));
         calculateAchievements(game.getGameId(), system, game.getTeams().get(1));
+        System.out.println("\n\n\n############### Achievements calculated ########################\n\n\n");
     }
 
     private static void calculateAchievements(String gameId, AchievementSystem system, Team team) {

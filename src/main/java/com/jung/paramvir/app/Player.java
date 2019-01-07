@@ -61,11 +61,11 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
-                "playerId='" + playerId + '\'' +
+        return "\n \n  Player{" +
+                "   playerId='" + playerId + '\'' +
                // ", gameStats=" + gameStats +
-                ", achievements=" + achievements +
-                ", playerStats=" + playerStats +
+                "\n  achievements=" + achievements +
+                ",     \n playerStats=" + playerStats +
                 '}';
     }
 }

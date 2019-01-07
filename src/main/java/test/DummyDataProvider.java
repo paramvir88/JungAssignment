@@ -39,7 +39,7 @@ public class DummyDataProvider {
 
     public Game generateGame() {
         Game game = new Game();
-        game.setGameId(newGameIds.get(getRandomNumber(0,5)));
+        game.setGameId(newGameIds.get(getRandomNumber(0,4)));
         List<Team> teams = new ArrayList<>();
         teams.add(generateTeam("Rockers"));
         teams.add(generateTeam("Igniters"));
@@ -68,7 +68,7 @@ public class DummyDataProvider {
         player.setPlayerId(getRandomString(8));
         LinkedHashSet<Achievement> achievements = new LinkedHashSet<>();
         player.setAchievements(achievements);
-        for (int i = 0; i < getRandomNumber(0, 6); i++) {
+        for (int i = 0; i < getRandomNumber(0, 5); i++) {
             achievements.add(getRandomAchievement(i));
         }
 

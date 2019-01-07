@@ -41,8 +41,8 @@ public class Team {
     @Override
     public String toString() {
         return "Team{" +
-                "teamId='" + teamId + '\'' +
-                ", players=" + players +
+                "  teamId='" + teamId + '\'' +
+                ", \n  \n players=" + players +
                 '}';
     }
 }

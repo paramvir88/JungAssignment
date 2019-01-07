@@ -17,7 +17,6 @@ public class DummyGameLogic implements IGameLogic {
                 playerStats.setTotalKills(playerStats.getTotalKills() + 8);
                 player.setPlayerStats(playerStats);
                 playerStats.setTotalGamesPlayed(playerStats.getTotalGamesPlayed() + 1);
-
                 GameStats gameStats = dataProvider.getRandomGameStats();
                 player.getGameStats().put(game.getGameId(), gameStats);
 

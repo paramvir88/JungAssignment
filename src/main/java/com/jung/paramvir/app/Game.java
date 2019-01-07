@@ -12,17 +12,20 @@ public class Game {
 
     public void execute(){
 
-        System.out.println("Game executing......");
+        System.out.println("\nGame executing......");
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
+            System.out.println("Game executing......");
+            Thread.sleep(1000);
+            System.out.println("Game executing......\n\n");
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         gameLogic.execute(this);
 
-
-        System.out.println("################ GAME FINISHED ####################");
+        System.out.println("\n\n\n############### GAME FINISHED ####################\n\n\n");
     }
 
     public String getGameId() {
@@ -74,9 +77,7 @@ public class Game {
     public String toString() {
         return "Game{" +
                 "gameId='" + gameId + '\'' +
-                ", teams=" + teams +
-                ", winnerTeam=" + winnerTeam +
-                ", gameLogic=" + gameLogic +
+                ", \nteams=" + teams +
                 '}';
     }
 }
